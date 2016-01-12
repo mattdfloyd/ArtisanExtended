@@ -2,7 +2,7 @@
     "name": "sebpro/artisanext",
     "description": "A heap of commands for an extended artisan experience.",
     "require": {
-        "laravel/laravel": "dev-master",
+        "laravel/laravel": "dev-master"
     },
     "keywords": ["laravel", "artisan","extended"],
     "license": "MIT",
