@@ -17,5 +17,10 @@
             "email": "sebastiaan@sebastiaanprovost.com"
         }
     ],
+    "autoload": {
+         "psr-4": {
+           "Sebpro\\ArtisanExt": "src/"
+         }
+     },
     "minimum-stability": "dev"
 }
