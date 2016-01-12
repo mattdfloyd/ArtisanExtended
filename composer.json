@@ -1,0 +1,21 @@
+{
+    "name": "sebpro/artisanext",
+    "description": "A heap of commands for an extended artisan experience.",
+    "require": {
+        "laravel/laravel": "dev-master",
+    },
+    "keywords": ["laravel", "artisan","extended"],
+    "license": "MIT",
+    "homepage": "https://github.com/LeShadow/ArtisanExtended",
+    "support": {
+        "issues": "https://github.com/LeShadow/ArtisanExtended/issues",
+        "source": "https://github.com/LeShadow/ArtisanExtended"
+    },
+    "authors": [
+        {
+            "name": "Sebastiaan Provost",
+            "email": "sebastiaan@sebastiaanprovost.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
