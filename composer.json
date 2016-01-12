@@ -1,9 +1,6 @@
 {
     "name": "sebpro/artisanext",
     "description": "A heap of commands for an extended artisan experience.",
-    "require": {
-        "laravel/laravel": "5.2.*"
-    },
     "keywords": ["laravel", "artisan","extended"],
     "license": "MIT",
     "homepage": "https://github.com/LeShadow/ArtisanExtended",
