@@ -19,7 +19,7 @@
     ],
     "autoload": {
          "psr-4": {
-           "Sebpro\\ArtisanExt": "src/"
+           "Sebpro\\ArtisanExt\\": "src/"
          }
      },
     "minimum-stability": "dev"
