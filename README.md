@@ -11,7 +11,11 @@ If you have any suggestions or you found a bug, please submit them here in the i
 ## Usage
 
 ### Installation
+First execute the following command in the root of your Laravel project.
 `composer require sebpro/artisanext:0.1.0`
+
+When this command finished succesfully, add the following to your providers-array in config/app.php:
+`Sebpro\ArtisanExt\ArtisanExtServiceProvider::class,``
 
 ### List of commands
 ```
