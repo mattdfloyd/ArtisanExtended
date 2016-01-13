@@ -19,5 +19,5 @@
            "Sebpro\\ArtisanExt\\": "src/"
          }
      },
-    "minimum-stability": "dev"
+    "minimum-stability": "stable"
 }

@@ -86,7 +86,6 @@ class ArtisanExtServiceProvider extends ServiceProvider
           'app:cipher',
           'app:locale',
           'app:cache',
-          'app:alias',
           'app:queue',
           'app:session',
           'redis:host',

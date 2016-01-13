@@ -11,7 +11,7 @@ If you have any suggestions or you found a bug, please submit them here in the i
 ## Usage
 
 ### Installation
-`composer require sebpro/artisanext:0.0.4`
+`composer require sebpro/artisanext:0.1.0`
 
 ### List of commands
 ```
@@ -20,12 +20,12 @@ If you have any suggestions or you found a bug, please submit them here in the i
 * app:serviceprovider // You can add a service provider to config/app.php with this command
 * app:alias // You can add an alias to config/app.php with this command
 * app:cipher // You can the cipher for your app with this command
-* app:locale // You can change the locale for your app with this command 
+* app:locale // You can change the locale for your app with this command
 * app:cache // You can change the cache driver for your app with this command
 * app:queue // You can change the queue driver for your app with this command
 * app:session // You can change the session driver for your app with this command
 * redis:host // You can change the host for redis in .env with this command
-* redis:port // You can change the port for redis in .env with this command 
+* redis:port // You can change the port for redis in .env with this command
 * redis:password // You can change the password for redis in .env with this command
 * db:host // You can change the DB Host in .env with this command
 * db:name // You can change the DB Name in .env with this command
@@ -43,7 +43,7 @@ The following two commands work only with their arguments in double quotes becau
 php artisan app:serviceprovider "Illuminate\Auth\AuthServiceProvider"
 ```
 
-and 
+and
 
 ```
 php artisan app:alias "'App'       => Illuminate\Support\Facades\App"
