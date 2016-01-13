@@ -1,4 +1,6 @@
-<?php namespace Sebpro\ArtisanExt\Commands;
+<?php
+
+namespace Sebpro\ArtisanExt\Commands;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
@@ -6,7 +8,8 @@ use Symfony\Component\Console\Input\InputArgument;
 use \DB;
 use \Schema;
 
-class ExtDBPassword extends Command {
+class ExtDBPassword extends Command
+{
 
 	/**
 	 * The console command name.

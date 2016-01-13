@@ -1,10 +1,13 @@
-<?php namespace Sebpro\ArtisanExt\Commands;
+<?php
+
+namespace Sebpro\ArtisanExt\Commands;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
-class ExtLocale extends Command {
+class ExtLocale extends Command
+{
 
 	/**
 	 * The console command name.
