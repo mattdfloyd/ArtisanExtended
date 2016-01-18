@@ -26,7 +26,7 @@ class ArtisanExtServiceProvider extends ServiceProvider
           return new Commands\ExtCipher();
         });
 
-        $this->app['app:serviceprovider'] = $this->app->share(function () {
+        $this->app['app:provider'] = $this->app->share(function () {
           return new Commands\ExtProvider();
         });
 
@@ -81,7 +81,7 @@ class ArtisanExtServiceProvider extends ServiceProvider
     		$this->commands(
     			    'app:url',
                     'app:env',
-                    'app:serviceprovider',
+                    'app:provider',
                     'app:alias',
                     'app:cipher',
                     'app:locale',
