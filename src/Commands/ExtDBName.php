@@ -72,9 +72,12 @@ class ExtDBName extends Command
      */
     protected function getArguments()
     {
-        return array(
-            array('databasename', InputArgument::REQUIRED,
-                  'Database name for your application'),
-        );
+        return [
+            [
+                'databasename',
+                InputArgument::REQUIRED,
+                'Database name for your application'
+            ],
+        ];
     }
 }

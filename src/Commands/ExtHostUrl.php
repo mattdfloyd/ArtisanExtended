@@ -66,8 +66,8 @@ class ExtHostUrl extends Command
      */
     protected function getArguments()
     {
-        return array(
-            array('url', InputArgument::REQUIRED, 'URL of your application'),
-        );
+        return [
+            ['url', InputArgument::REQUIRED, 'URL of your application'],
+        ];
     }
 }

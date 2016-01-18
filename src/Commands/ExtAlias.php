@@ -60,9 +60,9 @@ class ExtAlias extends Command
                       '\'	=>	'.$alias_path.'::class,';
 
         $config_file_data = file_get_contents($config_file);
-        $artisan_ext_head =  '        /*'."\n".
-                             '         * Artisan Extended added aliases...'.
-                             "\n".'         */'."\n"; // 78
+        $artisan_ext_head = '        /*'."\n".
+                            '         * Artisan Extended added aliases...'.
+                            "\n".'         */'."\n"; // 78
 
         if (strpos($config_file_data, $artisan_ext_head) == false) {
             $pos = strpos($config_file_data, '\'aliases\' => [');

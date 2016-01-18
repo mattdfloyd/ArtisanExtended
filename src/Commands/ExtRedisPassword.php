@@ -68,9 +68,9 @@ class ExtRedisPassword extends Command
      */
     protected function getArguments()
     {
-        return array(
-            array('redispassword', InputArgument::REQUIRED,
-                  'Redis password for your application'),
-        );
+        return [
+            ['redispassword', InputArgument::REQUIRED,
+                  'Redis password for your application'],
+        ];
     }
 }

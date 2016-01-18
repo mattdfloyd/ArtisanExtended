@@ -67,9 +67,9 @@ class ExtQueue extends Command
      */
     protected function getArguments()
     {
-        return array(
-            array('queuedriver', InputArgument::REQUIRED,
-                  'Queue driver for your application'),
-        );
+        return [
+            ['queuedriver', InputArgument::REQUIRED,
+                  'Queue driver for your application'],
+        ];
     }
 }

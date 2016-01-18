@@ -68,9 +68,9 @@ class ExtRedisPort extends Command
      */
     protected function getArguments()
     {
-        return array(
-            array('redisport', InputArgument::REQUIRED,
-                  'Redis port of your application'),
-        );
+        return [
+            ['redisport', InputArgument::REQUIRED,
+                  'Redis port of your application'],
+        ];
     }
 }

@@ -67,9 +67,9 @@ class ExtSession extends Command
      */
     protected function getArguments()
     {
-        return array(
-            array('sessiondriver', InputArgument::REQUIRED,
-                  'Session driver for your application'),
-        );
+        return [
+            ['sessiondriver', InputArgument::REQUIRED,
+                  'Session driver for your application'],
+        ];
     }
 }

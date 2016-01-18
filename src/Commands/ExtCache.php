@@ -67,9 +67,12 @@ class ExtCache extends Command
      */
     protected function getArguments()
     {
-        return array(
-            array('cachedriver', InputArgument::REQUIRED,
-                  'Cache driver for your application'),
-        );
+        return [
+            [
+                'cachedriver',
+                InputArgument::REQUIRED,
+                'Cache driver for your application'
+            ],
+        ];
     }
 }

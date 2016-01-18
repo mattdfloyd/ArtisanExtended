@@ -67,9 +67,9 @@ class ExtEnv extends Command
      */
     protected function getArguments()
     {
-        return array(
-            array('environment', InputArgument::REQUIRED,
-                  'Environment of your application'),
-        );
+        return [
+            ['environment', InputArgument::REQUIRED,
+                  'Environment of your application'],
+        ];
     }
 }

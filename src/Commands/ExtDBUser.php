@@ -69,9 +69,12 @@ class ExtDBUser extends Command
      */
     protected function getArguments()
     {
-        return array(
-            array('databaseuser', InputArgument::REQUIRED,
-                  'Database host for your application'),
-        );
+        return [
+            [
+                'databaseuser',
+                InputArgument::REQUIRED,
+                'Database host for your application'
+            ],
+        ];
     }
 }

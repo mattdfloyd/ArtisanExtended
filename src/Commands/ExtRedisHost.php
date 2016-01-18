@@ -68,9 +68,9 @@ class ExtRedisHost extends Command
      */
     protected function getArguments()
     {
-        return array(
-            array('redishost', InputArgument::REQUIRED,
-                  'Redis host for your application'),
-        );
+        return [
+            ['redishost', InputArgument::REQUIRED,
+                  'Redis host for your application'],
+        ];
     }
 }

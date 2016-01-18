@@ -64,9 +64,9 @@ class ExtLocale extends Command
      */
     protected function getArguments()
     {
-        return array(
-            array('locale', InputArgument::REQUIRED,
-                  'Locale of your application'),
-        );
+        return [
+            ['locale', InputArgument::REQUIRED,
+                  'Locale of your application'],
+        ];
     }
 }

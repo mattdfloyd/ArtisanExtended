@@ -71,9 +71,12 @@ class ExtDBHost extends Command
      */
     protected function getArguments()
     {
-        return array(
-            array('databasehost', InputArgument::REQUIRED,
-                  'Database host for your application'),
-        );
+        return [
+            [
+                'databasehost',
+                InputArgument::REQUIRED,
+                'Database host for your application'
+            ],
+        ];
     }
 }

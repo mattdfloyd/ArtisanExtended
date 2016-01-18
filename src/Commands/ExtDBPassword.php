@@ -70,9 +70,12 @@ class ExtDBPassword extends Command
      */
     protected function getArguments()
     {
-        return array(
-            array('databasepassword', InputArgument::REQUIRED,
-                  'Database password for your application'),
-        );
+        return [
+            [
+                'databasepassword',
+                InputArgument::REQUIRED,
+                'Database password for your application'
+            ],
+        ];
     }
 }

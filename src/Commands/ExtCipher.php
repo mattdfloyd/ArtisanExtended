@@ -67,9 +67,12 @@ class ExtCipher extends Command
      */
     protected function getArguments()
     {
-        return array(
-            array('cipher', InputArgument::REQUIRED,
-                  'Cipher used in your application'),
-        );
+        return [
+            [
+                'cipher',
+                InputArgument::REQUIRED,
+                'Cipher used in your application'
+            ],
+        ];
     }
 }
