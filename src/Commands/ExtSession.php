@@ -47,13 +47,13 @@ class ExtSession extends Command
 
         if (file_exists($file)) {
             file_put_contents($file, str_replace(
-                'SESSION_DRIVER=' . $old_session_driver,
-                'SESSION_DRIVER=' . $this->argument('sessiondriver'),
+                'SESSION_DRIVER='.$old_session_driver,
+                'SESSION_DRIVER='.$this->argument('sessiondriver'),
                 file_get_contents($file)
             ));
 
-            return $this->info('The session driver has been changed ' .
-                               'successfully to: ' .
+            return $this->info('The session driver has been changed '.
+                               'successfully to: '.
                                $this->argument('sessiondriver'));
         }
 

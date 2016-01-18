@@ -41,17 +41,17 @@ class ExtLocale extends Command
     {
         $old_locale = $this->laravel['config']['app.locale'];
 
-        $file = config_path() . '/app.php';
+        $file = config_path().'/app.php';
 
         if (file_exists($file)) {
             file_put_contents($file, str_replace(
-                "'locale' => '" . $old_locale . "',",
-                "'locale' => '" . $this->argument('locale') . "',",
+                "'locale' => '".$old_locale."',",
+                "'locale' => '".$this->argument('locale')."',",
                 file_get_contents($file)
             ));
 
-            return $this->info('The locale has been changed ' .
-                               'successfully to: ' . $this->argument('locale'));
+            return $this->info('The locale has been changed '.
+                               'successfully to: '.$this->argument('locale'));
         }
 
         return $this->error('The app.php configuration file is missing.');

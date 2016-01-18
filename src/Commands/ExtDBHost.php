@@ -41,8 +41,8 @@ class ExtDBHost extends Command
      */
     public function handle()
     {
-        $old_db_host = $this->laravel['config']['database.connections.' .
-                       $this->laravel['config']['database.default'] . '.host'];
+        $old_db_host = $this->laravel['config']['database.connections.'.
+                       $this->laravel['config']['database.default'].'.host'];
 
         $file = base_path('.env');
 
@@ -50,14 +50,14 @@ class ExtDBHost extends Command
             file_put_contents(
                 $file,
                 str_replace(
-                    'DB_HOST=' . $old_db_host,
-                    'DB_HOST=' . $this->argument('databasehost'),
+                    'DB_HOST='.$old_db_host,
+                    'DB_HOST='.$this->argument('databasehost'),
                     file_get_contents($file)
                 )
             );
 
-            return $this->info('The database host has been changed ' .
-                               'successfully to: ' .
+            return $this->info('The database host has been changed '.
+                               'successfully to: '.
                                $this->argument('databasehost'));
         }
 

@@ -41,20 +41,20 @@ class ExtRedisPassword extends Command
      */
     public function handle()
     {
-        $old_redis_password = $this->laravel['config']['database.redis.' .
+        $old_redis_password = $this->laravel['config']['database.redis.'.
                                                        'default.password'];
 
         $file = base_path('.env');
 
         if (file_exists($file)) {
             file_put_contents($file, str_replace(
-                'REDIS_PASSWORD=' . $old_redis_password,
-                'REDIS_PASSWORD=' . $this->argument('redispassword'),
+                'REDIS_PASSWORD='.$old_redis_password,
+                'REDIS_PASSWORD='.$this->argument('redispassword'),
                 file_get_contents($file)
             ));
 
-            return $this->info('The redis password has been changed ' .
-                               'successfully to: ' .
+            return $this->info('The redis password has been changed '.
+                               'successfully to: '.
                                $this->argument('redispassword'));
         }
 

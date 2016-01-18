@@ -41,20 +41,20 @@ class ExtRedisHost extends Command
      */
     public function handle()
     {
-        $old_redis_host = $this->laravel['config']['database.redis.' .
+        $old_redis_host = $this->laravel['config']['database.redis.'.
                                                    'default.host'];
 
         $file = base_path('.env');
 
         if (file_exists($file)) {
             file_put_contents($file, str_replace(
-                'REDIS_HOST=' . $old_redis_host,
-                'REDIS_HOST=' . $this->argument('redishost'),
+                'REDIS_HOST='.$old_redis_host,
+                'REDIS_HOST='.$this->argument('redishost'),
                 file_get_contents($file)
             ));
 
-            return $this->info('The redis host has been changed ' .
-                               'successfully to: ' .
+            return $this->info('The redis host has been changed '.
+                               'successfully to: '.
                                $this->argument('redishost'));
         }
 

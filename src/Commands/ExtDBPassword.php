@@ -22,7 +22,7 @@ class ExtDBPassword extends Command
      *
      * @var string
      */
-    protected $description = 'Change the database password for ' .
+    protected $description = 'Change the database password for '.
                              'your application.';
 
     /**
@@ -42,21 +42,21 @@ class ExtDBPassword extends Command
      */
     public function handle()
     {
-        $old_db_password = $this->laravel['config']['database.connections.' .
-                           $this->laravel['config']['database.default'] .
+        $old_db_password = $this->laravel['config']['database.connections.'.
+                           $this->laravel['config']['database.default'].
                            '.password'];
 
         $file = base_path('.env');
 
         if (file_exists($file)) {
             file_put_contents($file, str_replace(
-                'DB_PASSWORD=' . $old_db_password,
-                'DB_PASSWORD=' . $this->argument('databasepassword'),
+                'DB_PASSWORD='.$old_db_password,
+                'DB_PASSWORD='.$this->argument('databasepassword'),
                 file_get_contents($file)
             ));
 
-            return $this->info('The database password has been changed ' .
-                               'successfully to: ' .
+            return $this->info('The database password has been changed '.
+                               'successfully to: '.
                                $this->argument('databasepassword'));
         }
 

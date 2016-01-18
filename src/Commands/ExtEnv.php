@@ -47,13 +47,13 @@ class ExtEnv extends Command
 
         if (file_exists($file)) {
             file_put_contents($file, str_replace(
-                'ENV=' . $old_env,
-                'ENV=' . $this->argument('environment'),
+                'ENV='.$old_env,
+                'ENV='.$this->argument('environment'),
                 file_get_contents($file)
             ));
 
-            return $this->info('The environment has been changed ' .
-                               'successfully to: ' .
+            return $this->info('The environment has been changed '.
+                               'successfully to: '.
                                $this->argument('environment'));
         }
 

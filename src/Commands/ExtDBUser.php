@@ -41,21 +41,21 @@ class ExtDBUser extends Command
      */
     public function handle()
     {
-        $old_db_user = $this->laravel['config']['database.connections.' .
-                       $this->laravel['config']['database.default'] .
+        $old_db_user = $this->laravel['config']['database.connections.'.
+                       $this->laravel['config']['database.default'].
                        '.username'];
 
         $file = base_path('.env');
 
         if (file_exists($file)) {
             file_put_contents($file, str_replace(
-                'DB_USERNAME=' . $old_db_user,
-                'DB_USERNAME=' . $this->argument('databaseuser'),
+                'DB_USERNAME='.$old_db_user,
+                'DB_USERNAME='.$this->argument('databaseuser'),
                 file_get_contents($file)
             ));
 
-            return $this->info('The database username has been changed ' .
-                               'successfully to: ' .
+            return $this->info('The database username has been changed '.
+                               'successfully to: '.
                                $this->argument('databaseuser'));
         }
 

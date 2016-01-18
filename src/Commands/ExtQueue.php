@@ -47,13 +47,13 @@ class ExtQueue extends Command
 
         if (file_exists($file)) {
             file_put_contents($file, str_replace(
-                'QUEUE_DRIVER=' . $old_queue_driver,
-                'QUEUE_DRIVER=' . $this->argument('environment'),
+                'QUEUE_DRIVER='.$old_queue_driver,
+                'QUEUE_DRIVER='.$this->argument('environment'),
                 file_get_contents($file)
             ));
 
-            return $this->info('The queue driver has been changed ' .
-                               'successfully to: ' .
+            return $this->info('The queue driver has been changed '.
+                               'successfully to: '.
                                $this->argument('queuedriver'));
         }
 

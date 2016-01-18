@@ -41,19 +41,25 @@ class ExtDBName extends Command
      */
     public function handle()
     {
-        $old_db_name = $this->laravel['config']['database.connections.' .
-                       $this->laravel['config']['database.default'] .
+        $old_db_name = $this->laravel['config']['database.connections.'.
+                       $this->laravel['config']['database.default'].
                        '.database'];
 
         $file = base_path('.env');
 
         if (file_exists($file)) {
-            file_put_contents($file, str_replace('DB_DATABASE=' .
-                                                 $old_db_name, 'DB_DATABASE=' .
-                                                 $this->argument('databasename'), file_get_contents($file)));
+            file_put_contents(
+                $file,
+                str_replace(
+                    'DB_DATABASE='.$old_db_name,
+                    'DB_DATABASE='.$this->argument('databasename'),
+                    file_get_contents($file)
+                )
+            );
 
-            return $this->info('The database name has been changed ' .
-                               'successfully to: ' . $this->argument('databasename'));
+            return $this->info('The database name has been changed '.
+                               'successfully to: '.
+                               $this->argument('databasename'));
         }
 
         return $this->error('The .env configuration file is missing.');

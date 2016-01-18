@@ -41,7 +41,7 @@ class ExtAlias extends Command
      */
     public function handle()
     {
-        $config_file = config_path() . '/app.php';
+        $config_file = config_path().'/app.php';
 
         if (!file_exists($config_file)) {
             return $this->error('The app.php configuration file is missing.');
@@ -51,24 +51,24 @@ class ExtAlias extends Command
         $alias_path = $this->ask('what is the path for your alias?');
 
         if (str_contains($alias_path, '"')) {
-            return $this->error('You have to enclose the path in " ' .
-                                '(double quotes) to make sure that the ' .
+            return $this->error('You have to enclose the path in " '.
+                                '(double quotes) to make sure that the '.
                                 'backslashes are correctly saved.');
         }
 
-        $alias_line = '        ' . '\'' . $alias_name .
-                      '\'	=>	' . $alias_path . '::class,';
+        $alias_line = '        '.'\''.$alias_name.
+                      '\'	=>	'.$alias_path.'::class,';
 
         $config_file_data = file_get_contents($config_file);
-        $artisan_ext_head =  '        /*' . "\n" .
-                             '         * Artisan Extended added aliases...' .
-                             "\n" . '         */' . "\n"; // 78
+        $artisan_ext_head =  '        /*'."\n".
+                             '         * Artisan Extended added aliases...'.
+                             "\n".'         */'."\n"; // 78
 
         if (strpos($config_file_data, $artisan_ext_head) == false) {
             $pos = strpos($config_file_data, '\'aliases\' => [');
             $config_file_data_new = substr_replace(
                 $config_file_data,
-                "\n" . $artisan_ext_head . $alias_line . "\n",
+                "\n".$artisan_ext_head.$alias_line."\n",
                 $pos + 17,
                 0
             );
@@ -76,7 +76,7 @@ class ExtAlias extends Command
             $pos = strpos($config_file_data, $artisan_ext_head);
             $config_file_data_new = substr_replace(
                 $config_file_data,
-                $alias_line . "\n",
+                $alias_line."\n",
                 $pos + 68,
                 0
             );
@@ -84,7 +84,7 @@ class ExtAlias extends Command
 
         file_put_contents($config_file, $config_file_data_new);
 
-        return $this->info('The following alias has been ' .
-                           'succesfully added: ' . $alias_path);
+        return $this->info('The following alias has been '.
+                           'succesfully added: '.$alias_path);
     }
 }

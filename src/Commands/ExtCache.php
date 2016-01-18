@@ -47,14 +47,13 @@ class ExtCache extends Command
 
         if (file_exists($file)) {
             file_put_contents($file, str_replace(
-                'CACHE_DRIVER=' .
-                $old_cache_driver,
-                'CACHE_DRIVER=' . $this->argument('cachedriver'),
+                'CACHE_DRIVER='.$old_cache_driver,
+                'CACHE_DRIVER='.$this->argument('cachedriver'),
                 file_get_contents($file)
             ));
 
-            return $this->info('The cache driver has been changed ' .
-                               'successfully to: ' .
+            return $this->info('The cache driver has been changed '.
+                               'successfully to: '.
                                $this->argument('cachedriver'));
         }
 

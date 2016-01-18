@@ -22,7 +22,7 @@ class ExtCipher extends Command
      *
      * @var string
      */
-    protected $description = 'Change the cipher that\'s being used for ' .
+    protected $description = 'Change the cipher that\'s being used for '.
                              'your application.';
 
     /**
@@ -44,19 +44,17 @@ class ExtCipher extends Command
     {
         $old_cipher = $this->laravel['config']['app.cipher'];
 
-        $file = config_path() . '/app.php';
+        $file = config_path().'/app.php';
 
         if (file_exists($file)) {
             file_put_contents($file, str_replace(
-                "'cipher' => '" .
-                $old_cipher . "',",
-                "'cipher' => '" .
-                $this->argument('cipher') . "',",
+                "'cipher' => '".$old_cipher."',",
+                "'cipher' => '".$this->argument('cipher')."',",
                 file_get_contents($file)
             ));
 
-            return $this->info('The cipher has been changed successfully ' .
-                               'to: ' . $this->argument('cipher'));
+            return $this->info('The cipher has been changed successfully '.
+                               'to: '.$this->argument('cipher'));
         }
 
         return $this->error('The app.php configuration file is missing.');

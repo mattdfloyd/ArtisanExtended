@@ -41,20 +41,20 @@ class ExtRedisPort extends Command
      */
     public function handle()
     {
-        $old_redis_port = $this->laravel['config']['database.redis.' .
+        $old_redis_port = $this->laravel['config']['database.redis.'.
                                                    'default.port'];
 
         $file = base_path('.env');
 
         if (file_exists($file)) {
             file_put_contents($file, str_replace(
-                'REDIS_PORT=' . $old_redis_port,
-                'REDIS_PORT=' . $this->argument('redisport'),
+                'REDIS_PORT='.$old_redis_port,
+                'REDIS_PORT='.$this->argument('redisport'),
                 file_get_contents($file)
             ));
 
-            return $this->info('The redis port has been changed ' .
-                               'successfully to: ' .
+            return $this->info('The redis port has been changed '.
+                               'successfully to: '.
                                $this->argument('redisport'));
         }
 
