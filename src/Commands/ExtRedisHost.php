@@ -3,10 +3,7 @@
 namespace Sebpro\ArtisanExt\Commands;
 
 use Illuminate\Console\Command;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
-use \DB;
-use \Schema;
 
 class ExtRedisHost extends Command
 {
@@ -69,8 +66,11 @@ class ExtRedisHost extends Command
     protected function getArguments()
     {
         return [
-            ['redishost', InputArgument::REQUIRED,
-                  'Redis host for your application',],
+            [
+                'redishost',
+                InputArgument::REQUIRED,
+                'Redis host for your application',
+            ],
         ];
     }
 }

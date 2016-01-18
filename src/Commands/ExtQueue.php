@@ -3,10 +3,7 @@
 namespace Sebpro\ArtisanExt\Commands;
 
 use Illuminate\Console\Command;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
-use \DB;
-use \Schema;
 
 class ExtQueue extends Command
 {
@@ -68,8 +65,11 @@ class ExtQueue extends Command
     protected function getArguments()
     {
         return [
-            ['queuedriver', InputArgument::REQUIRED,
-                  'Queue driver for your application',],
+            [
+                'queuedriver',
+                InputArgument::REQUIRED,
+                'Queue driver for your application',
+            ],
         ];
     }
 }

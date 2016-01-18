@@ -3,10 +3,7 @@
 namespace Sebpro\ArtisanExt\Commands;
 
 use Illuminate\Console\Command;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
-use \DB;
-use \Schema;
 
 class ExtRedisPort extends Command
 {
@@ -69,8 +66,11 @@ class ExtRedisPort extends Command
     protected function getArguments()
     {
         return [
-            ['redisport', InputArgument::REQUIRED,
-                  'Redis port of your application',],
+            [
+                'redisport',
+                InputArgument::REQUIRED,
+                'Redis port of your application',
+            ],
         ];
     }
 }

@@ -3,10 +3,7 @@
 namespace Sebpro\ArtisanExt\Commands;
 
 use Illuminate\Console\Command;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
-use \DB;
-use \Schema;
 
 class ExtSession extends Command
 {
@@ -68,8 +65,11 @@ class ExtSession extends Command
     protected function getArguments()
     {
         return [
-            ['sessiondriver', InputArgument::REQUIRED,
-                  'Session driver for your application',],
+            [
+                'sessiondriver',
+                InputArgument::REQUIRED,
+                'Session driver for your application',
+            ],
         ];
     }
 }

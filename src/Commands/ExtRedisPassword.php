@@ -3,10 +3,7 @@
 namespace Sebpro\ArtisanExt\Commands;
 
 use Illuminate\Console\Command;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
-use \DB;
-use \Schema;
 
 class ExtRedisPassword extends Command
 {
@@ -69,8 +66,11 @@ class ExtRedisPassword extends Command
     protected function getArguments()
     {
         return [
-            ['redispassword', InputArgument::REQUIRED,
-                  'Redis password for your application',],
+            [
+                'redispassword',
+                InputArgument::REQUIRED,
+                'Redis password for your application',
+            ],
         ];
     }
 }
