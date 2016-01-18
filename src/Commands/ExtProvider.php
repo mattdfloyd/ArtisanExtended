@@ -16,7 +16,7 @@ class ExtProvider extends Command
 	 *
 	 * @var string
 	 */
-	protected $name = 'app:provider {serviceprovider}';
+	protected $name = 'app:provider';
 
 	/**
 	 * The console command description.
@@ -42,44 +42,37 @@ class ExtProvider extends Command
 	 */
 	public function handle()
 	{
-    $file = config_path() . '/app.php';
+		$file = config_path() . '/app.php';
 
-    if(!file_exists($file))
-    {
-      return $this->error('The app.php configuration file is missing.');
-    }
+		if(!file_exists($file))
+		{
+			return $this->error('The app.php configuration file is missing.');
+		}
 
-    $file_data = file_get_contents($file);
-    $laravel_service_head = '        /*' . "\n" . '         * Laravel Framework Service Providers...' . "\n" . '         */' . "\n";
-    $artisan_ext_head =  '        /*' . "\n" . '         * Artisan Extended added Service Providers...' . "\n" . '         */' . "\n"; //78
+		$provider_path = $this->ask('What is the Service Provider\'s path?');
+		$provider_line = '        ' . $provider_path . '::class,';
 
-    if(strpos($file_data, $artisan_ext_head) == false)
-    {
-      $pos = strpos($file_data, '\'providers\' => [');
-      $file_data_new = substr_replace($file_data, "\n" . $artisan_ext_head . '        ' . $this->argument('serviceprovider') . '::class,' , $pos + 17, 0);
-      file_put_contents($file, $file_data_new);
-    }
-    else
-    {
-      $pos = strpos($file_data, $artisan_ext_head);
-      $file_data_new = substr_replace($file_data, '        ' . $this->argument('serviceprovider') . '::class,' . "\n", $pos + 78, 0);
-    }
+		$file_data = file_get_contents($file);
+		$laravel_service_head = '        /*' . "\n" . '         * Laravel Framework Service Providers...' . "\n" . '         */' . "\n";
+		$artisan_ext_head =  '        /*' . "\n" . '         * Artisan Extended added Service Providers...' . "\n" . '         */' . "\n"; //78
 
-    file_put_contents($file, $file_data_new);
-    return $this->info('The following service provider has been succesfully added: ' . $this->argument('serviceprovider'));
+		if(strpos($file_data, $artisan_ext_head) == false)
+		{
+			$pos = strpos($file_data, '\'providers\' => [');
+			$file_data_new = substr_replace($file_data, "\n" . $artisan_ext_head . $provider_line , $pos + 17, 0);
+			file_put_contents($file, $file_data_new);
+		}
+		else
+		{
+			$pos = strpos($file_data, $artisan_ext_head);
+			$file_data_new = substr_replace($file_data, $provider_line . "\n", $pos + 78, 0);
+		}
 
-  }
+		file_put_contents($file, $file_data_new);
 
-	/**
-	 * Get the console command arguments.
-	 *
-	 * @return array
-	 */
-	protected function getArguments()
-	{
-		return array(
-			array('serviceprovider', InputArgument::REQUIRED, 'Service provider path.'),
-		);
+		return $this->info('The following service provider has been succesfully added: ' . $provider_line);
+
 	}
+
 
 }
