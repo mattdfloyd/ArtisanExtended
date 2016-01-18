@@ -70,7 +70,7 @@ class ExtRedisPort extends Command
     {
         return [
             ['redisport', InputArgument::REQUIRED,
-                  'Redis port of your application'],
+                  'Redis port of your application',],
         ];
     }
 }

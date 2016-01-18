@@ -70,7 +70,7 @@ class ExtRedisHost extends Command
     {
         return [
             ['redishost', InputArgument::REQUIRED,
-                  'Redis host for your application'],
+                  'Redis host for your application',],
         ];
     }
 }

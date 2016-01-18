@@ -74,7 +74,7 @@ class ExtDBPassword extends Command
             [
                 'databasepassword',
                 InputArgument::REQUIRED,
-                'Database password for your application'
+                'Database password for your application',
             ],
         ];
     }

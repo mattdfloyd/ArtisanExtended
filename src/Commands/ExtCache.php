@@ -71,7 +71,7 @@ class ExtCache extends Command
             [
                 'cachedriver',
                 InputArgument::REQUIRED,
-                'Cache driver for your application'
+                'Cache driver for your application',
             ],
         ];
     }

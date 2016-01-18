@@ -75,7 +75,7 @@ class ExtDBHost extends Command
             [
                 'databasehost',
                 InputArgument::REQUIRED,
-                'Database host for your application'
+                'Database host for your application',
             ],
         ];
     }

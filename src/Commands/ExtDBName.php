@@ -76,7 +76,7 @@ class ExtDBName extends Command
             [
                 'databasename',
                 InputArgument::REQUIRED,
-                'Database name for your application'
+                'Database name for your application',
             ],
         ];
     }

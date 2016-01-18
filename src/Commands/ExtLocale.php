@@ -66,7 +66,7 @@ class ExtLocale extends Command
     {
         return [
             ['locale', InputArgument::REQUIRED,
-                  'Locale of your application'],
+                  'Locale of your application',],
         ];
     }
 }

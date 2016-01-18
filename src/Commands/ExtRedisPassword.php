@@ -70,7 +70,7 @@ class ExtRedisPassword extends Command
     {
         return [
             ['redispassword', InputArgument::REQUIRED,
-                  'Redis password for your application'],
+                  'Redis password for your application',],
         ];
     }
 }

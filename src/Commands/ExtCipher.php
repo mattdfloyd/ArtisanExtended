@@ -71,7 +71,7 @@ class ExtCipher extends Command
             [
                 'cipher',
                 InputArgument::REQUIRED,
-                'Cipher used in your application'
+                'Cipher used in your application',
             ],
         ];
     }

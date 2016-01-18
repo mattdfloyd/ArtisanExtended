@@ -69,7 +69,7 @@ class ExtSession extends Command
     {
         return [
             ['sessiondriver', InputArgument::REQUIRED,
-                  'Session driver for your application'],
+                  'Session driver for your application',],
         ];
     }
 }

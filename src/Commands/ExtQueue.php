@@ -69,7 +69,7 @@ class ExtQueue extends Command
     {
         return [
             ['queuedriver', InputArgument::REQUIRED,
-                  'Queue driver for your application'],
+                  'Queue driver for your application',],
         ];
     }
 }
