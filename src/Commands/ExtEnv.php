@@ -3,10 +3,7 @@
 namespace Sebpro\ArtisanExt\Commands;
 
 use Illuminate\Console\Command;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
-use \DB;
-use \Schema;
 
 class ExtEnv extends Command
 {
@@ -68,8 +65,11 @@ class ExtEnv extends Command
     protected function getArguments()
     {
         return [
-            ['environment', InputArgument::REQUIRED,
-                  'Environment of your application'],
+            [
+                'environment',
+                InputArgument::REQUIRED,
+                'Environment of your application',
+            ],
         ];
     }
 }

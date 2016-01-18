@@ -3,7 +3,6 @@
 namespace Sebpro\ArtisanExt\Commands;
 
 use Illuminate\Console\Command;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
 class ExtLocale extends Command
@@ -65,8 +64,11 @@ class ExtLocale extends Command
     protected function getArguments()
     {
         return [
-            ['locale', InputArgument::REQUIRED,
-                  'Locale of your application',],
+            [
+                'locale',
+                InputArgument::REQUIRED,
+                'Locale of your application',
+            ],
         ];
     }
 }

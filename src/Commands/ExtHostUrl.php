@@ -3,10 +3,7 @@
 namespace Sebpro\ArtisanExt\Commands;
 
 use Illuminate\Console\Command;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
-use \DB;
-use \Schema;
 
 class ExtHostUrl extends Command
 {
@@ -67,7 +64,11 @@ class ExtHostUrl extends Command
     protected function getArguments()
     {
         return [
-            ['url', InputArgument::REQUIRED, 'URL of your application',],
+            [
+                'url',
+                InputArgument::REQUIRED,
+                'URL of your application',
+            ],
         ];
     }
 }
