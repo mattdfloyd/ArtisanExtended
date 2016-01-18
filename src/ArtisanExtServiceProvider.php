@@ -13,89 +13,88 @@ class ArtisanExtServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
         $this->app['app:url'] = $this->app->share(function () {
-    			return new Commands\ExtHostUrl();
+            return new Commands\ExtHostUrl();
         });
 
         $this->app['app:env'] = $this->app->share(function () {
-          return new Commands\ExtEnv();
+            return new Commands\ExtEnv();
         });
 
         $this->app['app:cipher'] = $this->app->share(function () {
-          return new Commands\ExtCipher();
+            return new Commands\ExtCipher();
         });
 
         $this->app['app:provider'] = $this->app->share(function () {
-          return new Commands\ExtProvider();
+            return new Commands\ExtProvider();
         });
 
         $this->app['app:alias'] = $this->app->share(function () {
-          return new Commands\ExtAlias();
+            return new Commands\ExtAlias();
         });
 
         $this->app['app:cache'] = $this->app->share(function () {
-          return new Commands\ExtCache();
+            return new Commands\ExtCache();
         });
 
         $this->app['app:queue'] = $this->app->share(function () {
-          return new Commands\ExtQueue();
+            return new Commands\ExtQueue();
         });
 
         $this->app['app:session'] = $this->app->share(function () {
-          return new Commands\ExtSession();
+            return new Commands\ExtSession();
         });
 
         $this->app['app:locale'] = $this->app->share(function () {
-          return new Commands\ExtLocale();
+            return new Commands\ExtLocale();
         });
 
         $this->app['redis:password'] = $this->app->share(function () {
-          return new Commands\ExtRedisPassword();
+            return new Commands\ExtRedisPassword();
         });
 
         $this->app['redis:port'] = $this->app->share(function () {
-          return new Commands\ExtRedisPort();
+            return new Commands\ExtRedisPort();
         });
 
         $this->app['redis:host'] = $this->app->share(function () {
-          return new Commands\ExtRedisHost();
+            return new Commands\ExtRedisHost();
         });
 
         $this->app['db:name'] = $this->app->share(function () {
-          return new Commands\ExtDBName();
+            return new Commands\ExtDBName();
         });
 
         $this->app['db:host'] = $this->app->share(function () {
-          return new Commands\ExtDBHost();
+            return new Commands\ExtDBHost();
         });
 
         $this->app['db:user'] = $this->app->share(function () {
-          return new Commands\ExtDBUser();
+            return new Commands\ExtDBUser();
         });
 
         $this->app['db:password'] = $this->app->share(function () {
-          return new Commands\ExtDBPassword();
+            return new Commands\ExtDBPassword();
         });
 
-    		$this->commands(
-    			    'app:url',
-                    'app:env',
-                    'app:provider',
-                    'app:alias',
-                    'app:cipher',
-                    'app:locale',
-                    'app:cache',
-                    'app:queue',
-                    'app:session',
-                    'redis:host',
-                    'redis:port',
-                    'redis:password',
-                    'db:host',
-                    'db:name',
-                    'db:password',
-                    'db:user'
-    		    );
+        $this->commands(
+            'app:url',
+            'app:env',
+            'app:provider',
+            'app:alias',
+            'app:cipher',
+            'app:locale',
+            'app:cache',
+            'app:queue',
+            'app:session',
+            'redis:host',
+            'redis:port',
+            'redis:password',
+            'db:host',
+            'db:name',
+            'db:password',
+            'db:user'
+        );
     }
 
     /**

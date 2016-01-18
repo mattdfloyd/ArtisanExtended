@@ -1,7 +1,9 @@
 # ArtisanExtended
 ###### A heap of commands for an extended artisan experience.
 
-Disclaimer: this is my first package ever written, so please bare with me if there are bugs or if there is a bad explanation of the commands. Suggestions are always welcome!
+Disclaimer: this is my first package ever written,
+so please bare with me if there are bugs or if there is a bad explanation of the commands.
+Suggestions are always welcome!
 
 This is a package that allows you to edit several configuration items with artisan.
 It's at its beginning stage and it's fairly simple to use.
@@ -14,7 +16,8 @@ If you have any suggestions or you found a bug, please submit them here in the i
 First execute the following command in the root of your Laravel project.
 `composer require sebpro/artisanext:0.1.0`
 
-When this command finished succesfully, add the following to your providers-array in config/app.php:
+When this command finished succesfully, add the following to your
+providers-array in config/app.php:
 `Sebpro\ArtisanExt\ArtisanExtServiceProvider::class,``
 
 ### List of commands

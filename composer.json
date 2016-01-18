@@ -1,7 +1,7 @@
 {
     "name": "sebpro/artisanext",
     "description": "A heap of commands for an extended artisan experience.",
-    "keywords": ["laravel", "artisan","extended"],
+    "keywords": ["laravel", "artisan", "extended"],
     "license": "MIT",
     "homepage": "https://github.com/LeShadow/ArtisanExtended",
     "support": {
@@ -15,9 +15,9 @@
         }
     ],
     "autoload": {
-         "psr-4": {
-           "Sebpro\\ArtisanExt\\": "src/"
-         }
-     },
+        "psr-4": {
+            "Sebpro\\ArtisanExt\\": "src/"
+        }
+    },
     "minimum-stability": "stable"
 }
