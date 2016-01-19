@@ -56,6 +56,6 @@ class ExtPermCheck extends Command
 
         return $this->error('Some of your permissions are not set correctly.
                              Check the laravel documentation for the correct '.
-                            .'permissions.');
+                            'permissions.');
     }
 }
