@@ -6,7 +6,6 @@ use DB;
 
 class ArtisanExt
 {
-
     public static function checkDb()
     {
         if (DB::connection('mysql')->table(DB::raw('DUAL'))->first([DB::raw(1)])) {
@@ -14,12 +13,10 @@ class ArtisanExt
         }
 
         return false;
-
     }
 
     public static function checkPermissions()
     {
-
         $storage_bool = false;
         $bootstrap_cache_bool = false;
 
