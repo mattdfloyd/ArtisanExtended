@@ -77,6 +77,14 @@ class ArtisanExtServiceProvider extends ServiceProvider
             return new Commands\ExtDBPassword();
         });
 
+        $this->app['db:check'] = $this->app->share(function () {
+            return new Commands\ExtDBCheck();
+        });
+
+        $this->app['app:permcheck'] = $this->app->share(function () {
+            return new Commands\ExtPermCheck();
+        });
+
         $this->commands(
             'app:url',
             'app:env',
@@ -93,7 +101,9 @@ class ArtisanExtServiceProvider extends ServiceProvider
             'db:host',
             'db:name',
             'db:password',
-            'db:user'
+            'db:user',
+            'db:check',
+            'app:permcheck'
         );
     }
 
