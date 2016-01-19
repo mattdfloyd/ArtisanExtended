@@ -23,7 +23,7 @@ class ArtisanExt
     /**
      * Checks the directory permissions.
      *
-     * @return bool
+     * @return array
      */
     public static function checkPermissions()
     {
@@ -41,8 +41,8 @@ class ArtisanExt
         }
 
         return [
-          ['bootstrap/cache' => $bootstrap_cache_bool],
-          ['storage' => $storage_bool],
+            ['bootstrap/cache' => $bootstrap_cache_bool],
+            ['storage' => $storage_bool],
         ];
     }
 }
