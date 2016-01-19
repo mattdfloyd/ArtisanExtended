@@ -35,5 +35,4 @@ class ArtisanExt
           ['storage' => $storage_bool],
         ];
     }
-    
 }
