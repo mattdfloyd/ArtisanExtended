@@ -10,7 +10,7 @@ class ArtisanExt
     public static function checkDb()
     {
         if (DB::connection('mysql')->table(DB::raw('DUAL'))->first([DB::raw(1)])) {
-           return true;
+            return true;
         }
 
         return false;
