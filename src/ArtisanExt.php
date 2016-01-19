@@ -4,7 +4,8 @@ namespace Sebpro\ArtisanExt;
 
 use DB;
 
-class ArtisanExt {
+class ArtisanExt
+{
 
     public static function checkDb()
     {
@@ -34,9 +35,7 @@ class ArtisanExt {
 
         return [
           ['bootstrap/cache' => $bootstrap_cache_bool],
-          ['storage' => $storage_bool]
+          ['storage' => $storage_bool],
         ];
-
     }
-
 }

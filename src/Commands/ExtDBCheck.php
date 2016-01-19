@@ -38,7 +38,7 @@ class ExtDBCheck extends Command
      */
     public function handle()
     {
-        if(ArtisanExt::checkDb()) {
+        if (ArtisanExt::checkDb()) {
             return $this->info('Succesfully connected to the database.');
         }
 
