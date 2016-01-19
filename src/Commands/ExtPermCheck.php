@@ -45,8 +45,7 @@ class ExtPermCheck extends Command
             if ($value[key($value)] == true) {
                 $count++;
                 $this->info('The ' . key($value) . ' directory is writable.');
-            }
-            else {
+            } else {
                 $this->error('The ' . key($value) . ' directory is not writable.');
             }
         }
