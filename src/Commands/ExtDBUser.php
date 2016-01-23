@@ -3,8 +3,8 @@
 namespace Sebpro\ArtisanExt\Commands;
 
 use Illuminate\Console\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Sebpro\ArtisanExt\ArtisanExt;
+use Symfony\Component\Console\Input\InputArgument;
 
 class ExtDBUser extends Command
 {
