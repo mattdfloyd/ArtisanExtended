@@ -6,6 +6,11 @@ use DB;
 
 class ArtisanExt
 {
+    /**
+     * Checks the database connection.
+     *
+     * @return bool
+     */
     public static function checkDb()
     {
         if (DB::connection('mysql')->table(DB::raw('DUAL'))->first([DB::raw(1)])) {
@@ -15,6 +20,11 @@ class ArtisanExt
         return false;
     }
 
+    /**
+     * Checks the directory permissions.
+     *
+     * @return array
+     */
     public static function checkPermissions()
     {
         $storage_bool = false;
@@ -31,8 +41,8 @@ class ArtisanExt
         }
 
         return [
-          ['bootstrap/cache' => $bootstrap_cache_bool],
-          ['storage' => $storage_bool],
+            ['bootstrap/cache' => $bootstrap_cache_bool],
+            ['storage' => $storage_bool],
         ];
     }
 }
