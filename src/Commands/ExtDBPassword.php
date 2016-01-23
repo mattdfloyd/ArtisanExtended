@@ -2,9 +2,9 @@
 
 namespace Sebpro\ArtisanExt\Commands;
 
-use DB;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputArgument;
+use Sebpro\ArtisanExt\ArtisanExt;
 
 class ExtDBPassword extends Command
 {
@@ -13,7 +13,9 @@ class ExtDBPassword extends Command
      *
      * @var string
      */
-    protected $name = 'db:password {databasepassword}';
+    protected $signature = 'db:password
+                           {databasepassword : The password for the user of your database.}
+                           {--C|check : When enabled, the system will check your database connection.}';
 
     /**
      * The console command description.
@@ -53,9 +55,27 @@ class ExtDBPassword extends Command
                 file_get_contents($file)
             ));
 
+            if ($this->option('check')) {
+
+                $this->info('The database password has been changed '.
+                  'successfully to: '.
+                  $this->argument('databasepassword'));
+
+                $this->laravel['config']['database.connections.'.
+                $this->laravel['config']['database.default'].'.password'] = $this->argument('databasepassword');
+
+                try {
+                    ArtisanExt::checkDb();
+                    return $this->info('Succesfully connected to the database.');
+                } catch (\PDOException $e) {
+                    return $this->error('Failed to connect to the database.');
+                }
+            }
+
             return $this->info('The database password has been changed '.
-                               'successfully to: '.
-                               $this->argument('databasepassword'));
+              'successfully to: '.
+              $this->argument('databasepassword'));
+
         }
 
         return $this->error('The .env configuration file is missing.');
@@ -73,6 +93,12 @@ class ExtDBPassword extends Command
                 'databasepassword',
                 InputArgument::REQUIRED,
                 'Database password for your application',
+            ],
+            [
+                'check',
+                'C',
+                InputArgument::OPTIONAL,
+                'Check the database connection',
             ],
         ];
     }

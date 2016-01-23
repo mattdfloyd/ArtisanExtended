@@ -2,9 +2,9 @@
 
 namespace Sebpro\ArtisanExt\Commands;
 
-use DB;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputArgument;
+use Sebpro\ArtisanExt\ArtisanExt;
 
 class ExtDBName extends Command
 {
@@ -13,7 +13,9 @@ class ExtDBName extends Command
      *
      * @var string
      */
-    protected $name = 'db:name {databasename}';
+    protected $signature = 'db:name
+                           {databasename : The name of your database.}
+                           {--C|check : When enabled, the system will check your database connection.}';
 
     /**
      * The console command description.
@@ -55,6 +57,23 @@ class ExtDBName extends Command
                 )
             );
 
+            if ($this->option('check')) {
+
+                $this->info('The database name has been changed '.
+                  'successfully to: '.
+                  $this->argument('databasename'));
+
+                $this->laravel['config']['database.connections.'.
+                $this->laravel['config']['database.default'].'.database'] = $this->argument('databasename');
+
+                try {
+                    ArtisanExt::checkDb();
+                    return $this->info('Succesfully connected to the database.');
+                } catch (\PDOException $e) {
+                    return $this->error('Failed to connect to the database.');
+                }
+            }
+
             return $this->info('The database name has been changed '.
                                'successfully to: '.
                                $this->argument('databasename'));
@@ -75,6 +94,12 @@ class ExtDBName extends Command
                 'databasename',
                 InputArgument::REQUIRED,
                 'Database name for your application',
+            ],
+            [
+                'check',
+                'C',
+                InputArgument::OPTIONAL,
+                'Check the database connection',
             ],
         ];
     }

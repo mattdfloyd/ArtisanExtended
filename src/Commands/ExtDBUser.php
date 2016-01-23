@@ -2,9 +2,9 @@
 
 namespace Sebpro\ArtisanExt\Commands;
 
-use DB;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputArgument;
+use Sebpro\ArtisanExt\ArtisanExt;
 
 class ExtDBUser extends Command
 {
@@ -13,7 +13,9 @@ class ExtDBUser extends Command
      *
      * @var string
      */
-    protected $name = 'db:user {databaseuser}';
+    protected $signature = 'db:user
+                           {databaseuser : The user of your database.}
+                           {--C|check : When enabled, the system will check your database connection.}';
 
     /**
      * The console command description.
@@ -52,9 +54,29 @@ class ExtDBUser extends Command
                 file_get_contents($file)
             ));
 
-            return $this->info('The database username has been changed '.
-                               'successfully to: '.
-                               $this->argument('databaseuser'));
+            if ($this->option('check')) {
+
+                $this->info('The database user has been changed '.
+                  'successfully to: '.
+                  $this->argument('databaseuser'));
+
+                $this->laravel['config']['database.connections.'.
+                $this->laravel['config']['database.default'].'.username'] = $this->argument('databaseuser');
+
+                try {
+                    ArtisanExt::checkDb();
+                    return $this->info('Succesfully connected to the database.');
+                } catch (\PDOException $e) {
+                    return $this->error('Failed to connect to the database.');
+                }
+
+                return $this->error('Failed to connect to the database.');
+            }
+
+            return $this->info('The database user has been changed '.
+              'successfully to: '.
+              $this->argument('databaseuser'));
+
         }
 
         return $this->error('The .env configuration file is missing.');
@@ -72,6 +94,12 @@ class ExtDBUser extends Command
                 'databaseuser',
                 InputArgument::REQUIRED,
                 'Database host for your application',
+            ],
+            [
+                'check',
+                'C',
+                InputArgument::OPTIONAL,
+                'Check the database connection',
             ],
         ];
     }

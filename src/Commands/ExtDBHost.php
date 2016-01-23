@@ -2,9 +2,9 @@
 
 namespace Sebpro\ArtisanExt\Commands;
 
-use DB;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputArgument;
+use Sebpro\ArtisanExt\ArtisanExt;
 
 class ExtDBHost extends Command
 {
@@ -13,7 +13,9 @@ class ExtDBHost extends Command
      *
      * @var string
      */
-    protected $name = 'db:host {databasehost}';
+    protected $signature = 'db:host
+                           {databasehost : The host of your database server.}
+                           {--C|check : When enabled, the system will check your database connection.}';
 
     /**
      * The console command description.
@@ -54,9 +56,26 @@ class ExtDBHost extends Command
                 )
             );
 
+            if ($this->option('check')) {
+
+                $this->info('The database host has been changed '.
+                  'successfully to: '.
+                  $this->argument('databasehost'));
+
+                $this->laravel['config']['database.connections.'.
+                $this->laravel['config']['database.default'].'.host'] = $this->argument('databasehost');
+
+                try {
+                    ArtisanExt::checkDb();
+                    return $this->info('Succesfully connected to the database.');
+                } catch (\PDOException $e) {
+                    return $this->error('Failed to connect to the database.');
+                }
+            }
+
             return $this->info('The database host has been changed '.
-                               'successfully to: '.
-                               $this->argument('databasehost'));
+              'successfully to: '.
+              $this->argument('databasehost'));
         }
 
         return $this->error('The .env configuration file is missing.');
@@ -74,6 +93,12 @@ class ExtDBHost extends Command
                 'databasehost',
                 InputArgument::REQUIRED,
                 'Database host for your application',
+            ],
+            [
+                'check',
+                'C',
+                InputArgument::OPTIONAL,
+                'Check the database connection',
             ],
         ];
     }
