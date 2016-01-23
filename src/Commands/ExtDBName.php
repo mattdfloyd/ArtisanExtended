@@ -58,7 +58,6 @@ class ExtDBName extends Command
             );
 
             if ($this->option('check')) {
-
                 $this->info('The database name has been changed '.
                   'successfully to: '.
                   $this->argument('databasename'));
@@ -68,6 +67,7 @@ class ExtDBName extends Command
 
                 try {
                     ArtisanExt::checkDb();
+
                     return $this->info('Succesfully connected to the database.');
                 } catch (\PDOException $e) {
                     return $this->error('Failed to connect to the database.');

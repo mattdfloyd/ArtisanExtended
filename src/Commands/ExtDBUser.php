@@ -55,7 +55,6 @@ class ExtDBUser extends Command
             ));
 
             if ($this->option('check')) {
-
                 $this->info('The database user has been changed '.
                   'successfully to: '.
                   $this->argument('databaseuser'));
@@ -65,6 +64,7 @@ class ExtDBUser extends Command
 
                 try {
                     ArtisanExt::checkDb();
+                    
                     return $this->info('Succesfully connected to the database.');
                 } catch (\PDOException $e) {
                     return $this->error('Failed to connect to the database.');
