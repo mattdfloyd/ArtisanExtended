@@ -12,9 +12,13 @@ If you have any suggestions or you found a bug, please submit them here in the i
 
 ## Usage
 
+###Changelog
+* 0.2.0: Added the db:check command, made the commands to add aliases and providers interactive. All other db commands have an extra parameter that will check the database command on request. (-C)
+* 0.1.0: Initial release
+
 ### Installation
 First execute the following command in the root of your Laravel project.
-`composer require sebpro/artisanext:0.1.0`
+`composer require sebpro/artisanext:0.2.0`
 
 When this command finished succesfully, add the following to your
 providers-array in config/app.php:
@@ -38,6 +42,7 @@ providers-array in config/app.php:
 * db:name // You can change the DB Name in .env with this command
 * db:password // You can change the DB Password in .env with this command
 * db:user // You can change the DB User in .env with this command
+* db:check // You can use this command to check your database connection
 ```
 
 ### Explanation
@@ -45,15 +50,11 @@ Most commands are self-explanatory. Extended documentation will be written in a 
 
 Two remarks:
 
-The following two commands work only with their arguments in double quotes because of the nature of the arguments:
+The following two commands work now interactively:
 ```
-php artisan app:serviceprovider "Illuminate\Auth\AuthServiceProvider"
+* php artisan app:serviceprovider 
+* php artisan app:alias
 ```
 
-and
-
-```
-php artisan app:alias "'App'       => Illuminate\Support\Facades\App"
-```
 
 ~ Sebastiaan (@Stekkz)
