@@ -12,6 +12,7 @@ If you have any suggestions or you found a bug, please submit them here in the i
 
 ## Usage
 
+Package URL: https://packagist.org/packages/sebpro/artisanext
 ###Changelog
 * 0.2.0: Added the db:check command, made the commands to add aliases and providers interactive. All other db commands have an extra parameter that will check the database command on request. (**Add -C to ANY db command, and it'll check the database connection**)
 * 0.1.0: Initial release
