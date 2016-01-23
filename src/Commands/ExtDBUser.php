@@ -64,7 +64,7 @@ class ExtDBUser extends Command
 
                 try {
                     ArtisanExt::checkDb();
-                    
+
                     return $this->info('Succesfully connected to the database.');
                 } catch (\PDOException $e) {
                     return $this->error('Failed to connect to the database.');
@@ -76,7 +76,6 @@ class ExtDBUser extends Command
             return $this->info('The database user has been changed '.
               'successfully to: '.
               $this->argument('databaseuser'));
-
         }
 
         return $this->error('The .env configuration file is missing.');

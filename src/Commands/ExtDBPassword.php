@@ -75,7 +75,6 @@ class ExtDBPassword extends Command
             return $this->info('The database password has been changed '.
               'successfully to: '.
               $this->argument('databasepassword'));
-
         }
 
         return $this->error('The .env configuration file is missing.');
