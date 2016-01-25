@@ -24,7 +24,7 @@ First execute the following command in the root of your Laravel project.
 
 When this command finished succesfully, add the following to your
 providers-array in config/app.php:
-`Sebpro\ArtisanExt\ArtisanExtServiceProvider::class,``
+`Sebpro\ArtisanExt\ArtisanExtServiceProvider::class,`
 
 ### List of new commands (since the latest release)
 
