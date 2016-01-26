@@ -40,7 +40,7 @@ providers-array in config/app.php:
 * **app:env** // You can change the environment for your app with this command
 * **app:serviceprovider** // You can add a service provider to config/app.php with this command
 * **app:alias** // You can add an alias to config/app.php with this command
-* **app:cipher** // You can the cipher for your app with this command
+* **app:cipher** // You can change the cipher for your app with this command
 * **app:locale** // You can change the locale for your app with this command
 * **app:cache** // You can change the cache driver for your app with this command
 * **app:queue** // You can change the queue driver for your app with this command
